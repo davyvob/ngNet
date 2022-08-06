@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+*{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+.box{
+    /* position: relative; */
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    background:transparent ;
+    border-radius: 2rem;
+    box-shadow: 0 5px 35px rgba(0,0,0,0.1);
+    backdrop-filter: blur(1rem) brightness(108%);
+    border: 2px  rgba(0,0,0,0.9) solid;
+ }
+
+ .body{
+  
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+ 
+ }
+
+ section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+ 
+ }
+
+ .glass{
+   min-width: 5em;
+   /* padding:2rem; */
+   background:transparent ;
+   /* margin: 1rem; */
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   
+   /* background: rgba(255, 255, 255, 0);
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(3px);
+   -webkit-backdrop-filter: blur(3px);
+   border: 1px solid rgba(255, 255, 255, 1); */
+   
+   
+ }
+
+ .glass-border{
+   min-width: 8rem;
+   padding:2rem;
+   background:transparent ;
+   border-radius: 2rem;
+   background: rgba(255, 255, 255, 0);
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(20, 20, 20, 0.1);
+   backdrop-filter: blur(15px);
+   
+   border: 2px solid rgb(5, 5, 5);
+   margin: 1rem;
+   display: flex;
+   justify-content: center;
+
+ }
+
+ .diagram {
+   padding-left: 1rem;
+   padding-right: 1rem;
+   width: 6.5rem;
+   height: 6.5rem;
+   margin: 0rem;
+  
+}
+
+.nav-icon{
+   font-size: 2rem;
+}
+
+.nav-icon:hover{
+   font-size: 2rem;
+   color: rgb(0,250,154,0.9);
+}
+
+.challenge {
+   min-height: 31rem; 
+   min-width: auto;
+}
+
+.glassy{
+   background: transparent;
+}
+
+.progress{
+  background-color: transparent;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  color: aqua !important;
+  width: 10rem;
+
+
+}
+
+.input-box input{
+   width: 30%;
+   outline: none;
+   background: transparent;
+   border: 1px solid white;
+   padding:1rem 3rem;
+   border-radius: 1rem;
+   color: white;
+  
+}
+.ff-dark{
+    font-family: 'Oswald', sans-serif;
+    
+    padding: 1rem;
+    
+   
+}
+
+.puzzle-input{
+   width: 80%;
+   padding:2rem;
+   outline: none;
+   background: transparent;
+
+ 
+
+}
+

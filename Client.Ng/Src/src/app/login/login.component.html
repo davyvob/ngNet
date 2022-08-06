@@ -1,0 +1,38 @@
+
+<div class = "body">
+   <section>
+    <div class="box">
+        <div class="form">
+          
+
+            <h2 >Login</h2>
+            <br>
+           
+                <div class="input-box">
+                <input (click)="clearInputE()" [(ngModel)]="loginInputObject.email" type="text" placeholder="EmailAdres">
+                <i><fa-icon [icon]="faUser" class="nav-icon"></fa-icon></i>
+                </div>
+                
+                <div class="input-box">
+                    <input (click)="clearInputP()" [(ngModel)]="loginInputObject.password"  type="password" placeholder="password">
+                    <i><fa-icon [icon]="faLock" class="nav-icon"></fa-icon></i>
+                </div>
+                <div class ="input-box margin-4">
+                   <button (click)="login()">
+                    <span *ngIf="isLoading"
+    class="spinner-border spinner-border-sm mg-left-1"
+    role="status"
+    aria-hidden="true"
+  ></span>Login</button>
+                </div>
+                <div *ngIf="hasError" class="alert alert-danger ff" role="alert">
+                    <span>{{errorMessage}}</span> 
+                  </div>
+                <br *ngIf="!hasError">
+                <br *ngIf="!hasError">
+                <a>No account yet ?</a>
+            
+        </div>
+    </div>
+   </section>
+</div>

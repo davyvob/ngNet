@@ -1,0 +1,47 @@
+
+<head class="primary-header flex">
+    <!-- <div >
+        <img  class="logo" src="../../assets/codingbrowser_102152.png" alt="image for coding">
+    </div> -->
+    <div class="logo">
+        
+        <img class="anti-social-img" src="../../assets/antisocial.png">
+    </div>
+    
+    <div    (click)="toggleSideNav()"
+            class="mobile-nav-toggle" 
+            aria-controls="primary-navigation" 
+            aria-expanded="false">
+        
+        <i><fa-icon [icon]="faPlusMinus" class="nav-icon"></fa-icon></i>
+           
+        </div>
+       
+<nav [style.visibility]="isMenuOpen? 'visible' : 'hidden'">
+    <ul id="primary-navigation" class="primary-navigation flex">
+        <li class="active">
+            <a routerLink="" href="#">
+            <span aria-hidden="true">00</span>Home
+            </a>
+        </li>
+        <li>
+            <a routerLink="GameScreen" href="#">
+            <span aria-hidden="true">01</span>Play
+            </a>
+        </li>
+        <li >
+            <a  routerLink="User" href="#">
+            <span aria-hidden="true">02</span>User
+            </a>
+        </li>
+        <li>
+            <a routerLink="About" href="#">
+            <span  aria-hidden="true">03</span>About
+            </a>
+        </li>
+    </ul>
+</nav>
+
+</head>
+
+

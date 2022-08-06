@@ -1,0 +1,83 @@
+
+
+    <div class="container-md">
+        <div class="row">
+          
+
+           
+            <div class="col-sm" style="margin-top: 0rem;">
+                <div class="glass-border challenge">
+                    <div>
+                       
+                        
+                        <div *ngIf="!isInGame">
+                        <h2>Current challenge</h2>
+                        <h4>Available answer guesses</h4>
+                        <p><ngb-progressbar type="success" [value]="25" 
+                         class="progress"></ngb-progressbar></p>
+                        <h4 class="description">{{description}}</h4>
+                        <div class="puzzle-input">{{puzzleInput}}</div>
+                        <div class="answer"></div>
+
+                        <div>
+                            <div class="input-box">
+                                <input [(ngModel)]="answer" placeholder="Answer">                         
+                            </div>
+                           
+                            <div><i><fa-icon (click)="answerCurrent()" [icon]="faArrowsUp" class="nav-icon"></fa-icon></i></div> 
+                        </div>
+                      </div>
+                        
+                      <div *ngIf="isInGame">
+                        <div *ngIf="answerOutput.isCorrect" class="Output">
+                            <h1>Correct !!!!</h1>
+                            <button (click)="setGameState(false)" class="btn btn-success">Advance</button>
+
+                           
+                        </div>
+                         <div *ngIf="!answerOutput.isCorrect" class="Output">
+                            <h1>Wrong !!!!</h1>
+                            <h3 >Correct number is {{higherOrLower}}</h3>
+                            <h3 *ngIf="answerOutput.isWithinTenDigitsOfBeingRight">You are within 10 digits of the correct answer</h3>                         
+                            <button (click)="setGameState(false)" class="btn btn-danger">try again</button>
+                         </div>
+                    </div>
+                    <div *ngIf="hasError" class="ff-dark">
+                        <h2>{{errorMessage}}</h2>
+                    </div>
+                    <div *ngIf="isLoading">
+                        <span  class="spinner-border spinner-border-sm mg-left-1"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-2" style="margin-top: 0rem;">
+                <div class="glass">
+                    <div>
+                    <div><i><fa-icon (click)="createDiagrams()" [icon]="faRefresh" class="fa-lg nav-icon"></fa-icon></i></div>   
+                    <br>     
+                    <br>          
+                    <p>next level</p>
+                    <div class="diagram" >
+                       <canvas id="thirdDiagram">{{levelUpChart}}</canvas>   
+                    </div>
+                     <p>right/wrong answers</p>
+                     <div class="diagram" >
+                        <canvas id="secondDiagram">{{rightWrongChart}}</canvas>   
+                     </div>                  
+                     <p>Completion</p>    
+                     <div class="diagram">
+                     <canvas id="firstDiagram">{{completionChart}}</canvas>   
+                      </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+     
+    </div>

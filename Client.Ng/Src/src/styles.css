@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.home-background {
+    background-image: url('./assets/pexels-josé-luis-photographer-6910472.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-body {
+    height: 100%;
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* justify-content: center;
+    align-items: center; */
+    background-repeat: repeat;
+    background-size: fill;
+    background-image: url('./assets/planet-1657991027822-4996.jpg');
+
+    /* overflow-x: hidden; */
+    
+    /* background-image: linear-gradient(to right top, #17041d, #1e0928, #260c33, #2f0c3e, #380b4a, #471358, #561c66, #662475, #7f388b, #9a4ca2, #b460b9, #d075d0); */
+}
+
+
+
+

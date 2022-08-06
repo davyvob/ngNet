@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+*{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+
+
+.diagram {
+    width: 12rem;
+    height: 15rem;
+    padding: 2rem;
+    margin: 0rem;
+   
+}
+
+

@@ -1,0 +1,12 @@
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\bin\Debug\net6.0\CodingChallenge.Core.deps.json
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\bin\Debug\net6.0\CodingChallenge.Core.dll
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\bin\Debug\net6.0\CodingChallenge.Core.pdb
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.csproj.AssemblyReference.cache
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.AssemblyInfoInputs.cache
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.AssemblyInfo.cs
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.csproj.CoreCompileInputs.cache
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.dll
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\refint\CodingChallenge.Core.dll
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\CodingChallenge.Core.pdb
+C:\Users\davyv\Desktop\Ch\Src\CodingChallenge.Api\CodingChallenge.Core\obj\Debug\net6.0\ref\CodingChallenge.Core.dll

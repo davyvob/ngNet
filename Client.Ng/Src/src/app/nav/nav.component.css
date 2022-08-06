@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+*{
+    font-family: 'Oswald', sans-serif;
+}
+.flex{
+    display: flex;
+    gap: 2rem;
+}   
+
+/* .logo {
+    margin: 2rem;
+    max-height: 10rem;
+    max-width: 10rem;
+    
+} */
+
+
+
+.primary-header {
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    
+}
+
+.primary-navigation a {
+    color: white;
+    text-decoration: none;
+    margin-inline-end: 1rem;
+}
+
+.primary-navigation a [aria-hidden = "true"] {
+  
+    text-decoration: none;
+    font-weight: bold;
+    margin-inline-end: 0.5rem;
+    
+}
+
+nav{
+    position:absolute;
+    top: 1rem;
+    right: 3rem;
+}
+
+.primary-navigation a:hover{
+    
+    /* padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid white; */
+
+    color: rgb(159, 41, 41);
+}
+
+.anti-social-img{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    max-width: 10rem;
+    max-height: 8rem;
+   
+}
+
+.primary-navigation {
+    list-style: none;
+    padding: 1rem;
+    margin: 0rem;
+    /* border-top-left-radius : 25rem;
+    border-bottom-left-radius: 25rem;
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(0.5rem); */
+}
+
+
+
+.mobile-nav-toggle{
+       
+  visibility: hidden;
+
+ }
+
+
+@media (max-width:38em) {
+    .primary-navigation{
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        
+        flex-direction: column;
+        border-top-left-radius : 0rem;
+        border-bottom-left-radius: 0rem;
+        padding-top: 5rem;
+        padding-left: 2rem;
+
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(0.5rem); 
+        
+       
+    
+    }
+     
+ 
+    .mobile-nav-toggle{
+       
+        visibility: visible;
+        z-index:9999;
+        position: absolute;
+        width: 2rem;
+        aspect-ratio: 1;
+        top:2rem;
+        right: 2rem;
+        color: white;
+
+    
+     }
+}
+
