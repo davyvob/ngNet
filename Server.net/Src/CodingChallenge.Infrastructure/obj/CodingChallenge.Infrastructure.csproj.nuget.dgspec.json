@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj": {}
+    "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Core\\CodingChallenge.Core.csproj": {
+    "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Core\\CodingChallenge.Core.csproj",
+        "projectUniqueName": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj",
         "projectName": "CodingChallenge.Core",
-        "projectPath": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Core\\CodingChallenge.Core.csproj",
+        "projectPath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj",
         "packagesPath": "C:\\Users\\davyv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Core\\obj\\",
+        "outputPath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -76,14 +76,14 @@
         }
       }
     },
-    "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj": {
+    "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj",
         "projectName": "CodingChallenge.Infrastructure",
-        "projectPath": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\davyv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -104,8 +104,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Core\\CodingChallenge.Core.csproj": {
-                "projectPath": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Core\\CodingChallenge.Core.csproj"
+              "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj": {
+                "projectPath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj"
               }
             }
           }
