@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cnJEzby7yCVUbLvSqb7+jW8H+usqVcD7AWkNE5MKsfDwUyuPClA29YBoI84y4Yhp3VV+yuTDp74z54vDLN1ztQ==",
+  "dgSpecHash": "5QMxKwVVT9poW0cQlW6mS8KnSIw7n+HwzmMcNYwo053CYMQdji4laAlxefQ46TED2tvru6ULNRKA7sUugqx3NQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\davyv\\Desktop\\Ch\\Src\\CodingChallenge.Api\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Infrastructure\\CodingChallenge.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davyv\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\davyv\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
