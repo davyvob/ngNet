@@ -70,5 +70,15 @@ namespace CodingChallenge.Api.Controllers
             if (response.IsSucces) return Ok(response.Data);
             else return BadRequest(JsonSerializer.Serialize(response.ErrorMessages));
         }
+
+        [HttpGet("UserStatSheet")]
+        public async Task<IActionResult> GetUserStatSheet()
+        {
+            var userId = User.Claims.Where(x => x.Type == "id").FirstOrDefault()?.Value;
+            //var response = await _challengeService.CheckIfUserHasFinishedAllChallenges(userId);
+            var response = await _challengeService.GetUserGameStats(userId);
+            if (response.IsSucces) return Ok(response.Data);
+            else return BadRequest(JsonSerializer.Serialize(response.ErrorMessages));
+        }
     }
 }

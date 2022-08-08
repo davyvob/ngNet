@@ -1,6 +1,7 @@
 ﻿using CodingChallenge.Core.Dtos.Answers;
 using CodingChallenge.Core.Dtos.CodingChallenge;
 using CodingChallenge.Core.Dtos.CodingChallenge.Completed;
+using CodingChallenge.Core.Dtos.Stats;
 using CodingChallenge.Core.Dtos.Users;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,6 @@ namespace CodingChallenge.Core.Services.Interfaces
         Task<BaseServiceResponse<AnswerResponseDto>> AnswerCurrent(string userId, AnswerRequestDto answer);
         Task<BaseServiceResponse<CompletedUserCodeChallengeListDto>> GetCompletedChallengesForUser(string userId);
         Task<BaseServiceResponse<UserStateResponseDto>> CheckIfUserHasFinishedAllChallenges(string userId);
+        Task<BaseServiceResponse<PlayerStatsResponseDto>> GetUserGameStats(string userId);
     }
 }

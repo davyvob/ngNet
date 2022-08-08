@@ -1,6 +1,7 @@
 ﻿using CodingChallenge.Core.Dtos.Answers;
 using CodingChallenge.Core.Dtos.CodingChallenge;
 using CodingChallenge.Core.Dtos.CodingChallenge.Completed;
+using CodingChallenge.Core.Dtos.Stats;
 using CodingChallenge.Core.Dtos.Users;
 using CodingChallenge.Core.Entities;
 using CodingChallenge.Core.Infrastructure;
@@ -21,15 +22,18 @@ namespace CodingChallenge.Core.Services
         private readonly IUserCodingChallengeRepository _CompletedCodeChallengeRepo;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IGameManager _gameManager;
+        private readonly IPlayerStatsRepository _PlayerRepo;
         public CodingChallengeService(ICodeChallengeRepository CodeChallengeRepo,
                                       UserManager<ApplicationUser> userManager,
                                       IGameManager gameManager,
-                                      IUserCodingChallengeRepository CompletedCodeChallengeRepo)
+                                      IUserCodingChallengeRepository CompletedCodeChallengeRepo,
+                                      IPlayerStatsRepository PlayerRepo )
         {
             _CodeChallengeRepo = CodeChallengeRepo;
             _userManager = userManager;
             _gameManager = gameManager;
             _CompletedCodeChallengeRepo = CompletedCodeChallengeRepo;
+            _PlayerRepo = PlayerRepo;
         }
 
         public async Task<BaseServiceResponse<IEnumerable<CodingChallengeResponseDto>>> GetAll()
@@ -200,6 +204,41 @@ namespace CodingChallenge.Core.Services
                 responseObject.ErrorMessages.Add("Unable to retrieve the User details");
             }
             return responseObject;
+        }
+
+        public async Task<BaseServiceResponse<PlayerStatsResponseDto>> GetUserGameStats(string userId)
+        {
+            BaseServiceResponse<PlayerStatsResponseDto> responseObject = new();
+            PlayerStatsResponseDto responseDto = new();
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                var statSheet = await _PlayerRepo.GetByUserIdAsync(userId);
+                if(statSheet != null)
+                {
+                    responseDto.PlayerName = user.UserName;
+                    responseDto.TotalGuesses = statSheet.TotalGuesses;
+                    responseDto.CorrectGuesses = statSheet.CorrectGuesses;
+                    responseDto.WrongGuesses = statSheet.WrongGuesses;
+                    responseDto.Level = statSheet.Level;
+
+                    responseObject.IsSucces = true;
+                    responseObject.Data = responseDto;
+
+                }        
+                else
+                {
+                    responseObject.IsSucces = false;
+                    responseObject.ErrorMessages.Add("Unable to retrieve the User Stats");
+                }
+            }
+            else
+            {
+                responseObject.IsSucces = false;
+                responseObject.ErrorMessages.Add("Unable to retrieve the User details");
+            }
+            return responseObject;
+
         }
 
         private CodingChallengeResponseDto MapToCodingChallengeResponseDto(CodeChallenge challenge)

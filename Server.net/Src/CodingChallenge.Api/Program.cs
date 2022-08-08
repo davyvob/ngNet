@@ -96,6 +96,7 @@ builder.Services.AddScoped<ICodeChallengeRepository, CodeChallengeRepository>();
 builder.Services.AddScoped<ICodingChallengeService, CodingChallengeService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IGameManager, GameManager>();
+builder.Services.AddScoped<IPlayerStatsRepository, PlayerStatsRepository>();
 builder.Services.AddScoped<IUserCodingChallengeRepository, CompletedCodeChallengeRepository>();
 
 //builder.Services.AddCors(options => options.AddPolicy(name: "CodeChallengeContext", 
