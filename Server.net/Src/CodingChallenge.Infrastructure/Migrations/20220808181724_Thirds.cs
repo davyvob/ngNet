@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CodingChallenge.Infrastructure.Migrations
 {
-    public partial class Thirswsdd : Migration
+    public partial class Thirds : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -192,34 +192,61 @@ namespace CodingChallenge.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PlayerStats",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TotalGuesses = table.Column<int>(type: "int", nullable: false),
+                    CorrectGuesses = table.Column<int>(type: "int", nullable: false),
+                    WrongGuesses = table.Column<int>(type: "int", nullable: false),
+                    Level = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlayerStats", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PlayerStats_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "00000000-0000-0000-0000-000000000001", "cdaec013-b790-40c0-8625-9b44e3bef53d", "Admin", "ADMIN" },
-                    { "00000000-0000-0000-0000-000000000002", "45741d13-93a0-4a78-8024-9ccc148e5fda", "User", "USER" }
+                    { "00000000-0000-0000-0000-000000000001", "0db248de-f2e5-47ce-823a-e6dc303d316c", "Admin", "ADMIN" },
+                    { "00000000-0000-0000-0000-000000000002", "bb5bee24-87fe-4398-adb1-b94905ba1b78", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CurrentChallengeNumber", "CurrentPuzzleInput", "CurrentSolution", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "00000000-0000-0000-0000-000000000001", 0, "c8554266-b401-4519-9aeb-a9283053fc58", 1, "1 2", 3L, "admin@imi.be", true, false, null, "ADMIN@IMI.BE", "IMIADMIN", "AQAAAAEAACcQAAAAEN0EeD7t2KuZoJftZrkzRImDfQBzTjWPycrt3TLBoWhuNSM6gfymc7MO9V6i+VXOpg==", null, false, "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA", false, "ImiAdmin" });
+                values: new object[] { "00000000-0000-0000-0000-000000000001", 0, "c8554266-b401-4519-9aeb-a9283053fc58", 1, "1 2", 3L, "admin@imi.be", true, false, null, "ADMIN@IMI.BE", "IMIADMIN", "AQAAAAEAACcQAAAAEIqs/ooKVWkmKjOPH6mxoh2VspVaVkO5bpihxRRwu+HdCUQaVnwbldu4Wnd7Okhm7w==", null, false, "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA", false, "ImiAdmin" });
 
             migrationBuilder.InsertData(
                 table: "Challenges",
                 columns: new[] { "Id", "ChallengeNumber", "Description" },
                 values: new object[,]
                 {
-                    { new Guid("2332d45a-2574-4a89-a2a2-b1487c6a1d9a"), 3, "Multiply the lowest number with the highest number inside your puzzleinput" },
-                    { new Guid("a46581e0-4f8f-467e-9574-5a96fac6b1d9"), 2, "Add each number inside your puzzleinput and multiply it by the total amount of numbers inside your puzzleinput" },
-                    { new Guid("d7586111-b021-47fb-b42e-eb2f05f221f4"), 1, "Add each number inside your puzzleinput" }
+                    { new Guid("17b64ec1-ac80-4d28-a2dc-572def37dcd0"), 2, "Add each number inside your puzzleinput and multiply it by the total amount of numbers inside your puzzleinput" },
+                    { new Guid("83ad1877-0b3e-40ac-8a59-13ef0fdfbec0"), 1, "Add each number inside your puzzleinput" },
+                    { new Guid("b3fd7788-3193-4313-a257-8db393583e16"), 3, "Multiply the lowest number with the highest number inside your puzzleinput" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[] { "00000000-0000-0000-0000-000000000001", "00000000-0000-0000-0000-000000000001" });
+
+            migrationBuilder.InsertData(
+                table: "PlayerStats",
+                columns: new[] { "Id", "ApplicationUserId", "CorrectGuesses", "Level", "TotalGuesses", "WrongGuesses" },
+                values: new object[] { new Guid("f19d10f5-79eb-46e5-bf52-c418e9e64529"), "00000000-0000-0000-0000-000000000001", 0, 1, 0, 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -264,6 +291,12 @@ namespace CodingChallenge.Infrastructure.Migrations
                 name: "IX_CompletedChallenges_ApplicationUserId",
                 table: "CompletedChallenges",
                 column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlayerStats_ApplicationUserId",
+                table: "PlayerStats",
+                column: "ApplicationUserId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -288,6 +321,9 @@ namespace CodingChallenge.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "CompletedChallenges");
+
+            migrationBuilder.DropTable(
+                name: "PlayerStats");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

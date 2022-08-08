@@ -28,6 +28,9 @@ namespace CodingChallenge.Core.Managers
 
         public void ConfigureUserForChallenges(ApplicationUser user)
         {
+            // playerstats
+            user.PlayerStats = new PlayerStats(user.Id);       
+            //
             user.CurrentPuzzleInput = GetRandomInput();
             var algo = _algos.ChallengeAnswersById.FirstOrDefault(x => x.Key == user.CurrentChallengeNumber).Value;
             user.CurrentSolution = algo(user.CurrentPuzzleInput);

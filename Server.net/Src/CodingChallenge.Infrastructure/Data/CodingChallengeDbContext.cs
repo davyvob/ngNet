@@ -15,7 +15,9 @@ namespace CodingChallenge.Infrastructure.Data
 
         public DbSet<CodeChallenge> Challenges { get; set; }
         public DbSet<CompletedCodeChallenge> CompletedChallenges { get; set; }
-       
+
+        public DbSet<PlayerStats> PlayerStats { get; set; }
+
         public CodingChallengeDbContext(DbContextOptions<CodingChallengeDbContext> options) : base(options)
         {
 

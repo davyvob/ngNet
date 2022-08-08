@@ -16,11 +16,15 @@ namespace CodingChallenge.Core.Entities
         public string? CurrentPuzzleInput { get; set; } 
         public long CurrentSolution { get; set; }
         public int CurrentChallengeNumber { get; set; } = 1;
+        
 
         public ICollection<CompletedCodeChallenge> CompletedChallenges { get; set; }
+        public PlayerStats PlayerStats { get; set; }
 
 
-        
+
+
+
 
 
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6Ioe2Ck31IBdLDxLFzzXwWlOft5qDHrGUIDN7cNIWsYy4L29RkRLxGj+/lhmyUmk6X57fzxKiyDN9z4E6S2Y8g==",
+  "dgSpecHash": "MeSinDm+oTm2e1FQhomYgIxtBU5tjCYnPi/TUwFqvGLgYp3ijvzFEb/VC3ZlA/UYdUAkHsxSlawlxFqejzMq2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\davyv\\Desktop\\testgit\\ngNet\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj",
+  "projectFilePath": "C:\\Users\\davyv\\Desktop\\Draft\\Server.net\\Src\\CodingChallenge.Core\\CodingChallenge.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davyv\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\davyv\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

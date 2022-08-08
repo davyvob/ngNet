@@ -78,6 +78,13 @@ namespace CodingChallenge.Infrastructure.Data
 
             };
 
+            PlayerStats[] playerStats = new PlayerStats[]
+            {
+                new PlayerStats("00000000-0000-0000-0000-000000000001")
+            };
+
+
+
 
 
             modelBuilder.Entity<CodeChallenge>()
@@ -91,6 +98,9 @@ namespace CodingChallenge.Infrastructure.Data
 
             modelBuilder.Entity<IdentityUserRole<string>>()
             .HasData(userRoles);
+
+            modelBuilder.Entity<PlayerStats>()
+           .HasData(playerStats);
 
         }
     }

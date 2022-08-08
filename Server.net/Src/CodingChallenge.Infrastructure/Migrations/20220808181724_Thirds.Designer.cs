@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodingChallenge.Infrastructure.Migrations
 {
     [DbContext(typeof(CodingChallengeDbContext))]
-    [Migration("20220711195352_Thirswsdd")]
-    partial class Thirswsdd
+    [Migration("20220808181724_Thirds")]
+    partial class Thirds
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -111,7 +111,7 @@ namespace CodingChallenge.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@IMI.BE",
                             NormalizedUserName = "IMIADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN0EeD7t2KuZoJftZrkzRImDfQBzTjWPycrt3TLBoWhuNSM6gfymc7MO9V6i+VXOpg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIqs/ooKVWkmKjOPH6mxoh2VspVaVkO5bpihxRRwu+HdCUQaVnwbldu4Wnd7Okhm7w==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "VVPCRDAS3MJWQD5CSW2GWPRADBXEZINA",
                             TwoFactorEnabled = false,
@@ -139,19 +139,19 @@ namespace CodingChallenge.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d7586111-b021-47fb-b42e-eb2f05f221f4"),
+                            Id = new Guid("83ad1877-0b3e-40ac-8a59-13ef0fdfbec0"),
                             ChallengeNumber = 1,
                             Description = "Add each number inside your puzzleinput"
                         },
                         new
                         {
-                            Id = new Guid("a46581e0-4f8f-467e-9574-5a96fac6b1d9"),
+                            Id = new Guid("17b64ec1-ac80-4d28-a2dc-572def37dcd0"),
                             ChallengeNumber = 2,
                             Description = "Add each number inside your puzzleinput and multiply it by the total amount of numbers inside your puzzleinput"
                         },
                         new
                         {
-                            Id = new Guid("2332d45a-2574-4a89-a2a2-b1487c6a1d9a"),
+                            Id = new Guid("b3fd7788-3193-4313-a257-8db393583e16"),
                             ChallengeNumber = 3,
                             Description = "Multiply the lowest number with the highest number inside your puzzleinput"
                         });
@@ -188,6 +188,47 @@ namespace CodingChallenge.Infrastructure.Migrations
                     b.ToTable("CompletedChallenges");
                 });
 
+            modelBuilder.Entity("CodingChallenge.Core.Entities.PlayerStats", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CorrectGuesses")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalGuesses")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WrongGuesses")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
+                    b.ToTable("PlayerStats");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f19d10f5-79eb-46e5-bf52-c418e9e64529"),
+                            ApplicationUserId = "00000000-0000-0000-0000-000000000001",
+                            CorrectGuesses = 0,
+                            Level = 1,
+                            TotalGuesses = 0,
+                            WrongGuesses = 0
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -218,14 +259,14 @@ namespace CodingChallenge.Infrastructure.Migrations
                         new
                         {
                             Id = "00000000-0000-0000-0000-000000000001",
-                            ConcurrencyStamp = "cdaec013-b790-40c0-8625-9b44e3bef53d",
+                            ConcurrencyStamp = "0db248de-f2e5-47ce-823a-e6dc303d316c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "00000000-0000-0000-0000-000000000002",
-                            ConcurrencyStamp = "45741d13-93a0-4a78-8024-9ccc148e5fda",
+                            ConcurrencyStamp = "bb5bee24-87fe-4398-adb1-b94905ba1b78",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -355,6 +396,17 @@ namespace CodingChallenge.Infrastructure.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
+            modelBuilder.Entity("CodingChallenge.Core.Entities.PlayerStats", b =>
+                {
+                    b.HasOne("CodingChallenge.Core.Entities.ApplicationUser", "ApplicationUser")
+                        .WithOne("PlayerStats")
+                        .HasForeignKey("CodingChallenge.Core.Entities.PlayerStats", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -409,6 +461,9 @@ namespace CodingChallenge.Infrastructure.Migrations
             modelBuilder.Entity("CodingChallenge.Core.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("CompletedChallenges");
+
+                    b.Navigation("PlayerStats")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
