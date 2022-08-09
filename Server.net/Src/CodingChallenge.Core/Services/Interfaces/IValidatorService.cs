@@ -1,4 +1,5 @@
-﻿using CodingChallenge.Core.Dtos.Stats;
+﻿using CodingChallenge.Core.Dtos.CodingChallenge.Completed;
+using CodingChallenge.Core.Dtos.Stats;
 using CodingChallenge.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace CodingChallenge.Core.Services.Interfaces
     {
         Task<BaseServiceResponse<ApplicationUser>> GetUserById(string userId);
         Task<BaseServiceResponse<PlayerStatsResponseDto>> GetPlayerStatsByUserId(string userId);
+        Task<BaseServiceResponse<CompletedUserCodeChallengeListDto>> GetCompletedChallengesForUser(string userId);
     }
 }

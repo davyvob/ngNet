@@ -70,7 +70,7 @@ namespace CodingChallenge.Api.Controllers
             if (response.IsSucces) return Ok(response.Data);
             else return BadRequest(JsonSerializer.Serialize(response.ErrorMessages));
         }
-
+        
         [HttpGet("UserStatSheet")]
         public async Task<IActionResult> GetUserStatSheet()
         {
