@@ -23,17 +23,20 @@ namespace CodingChallenge.Core.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IGameManager _gameManager;
         private readonly IPlayerStatsRepository _PlayerRepo;
+        private readonly IValidatorService _ValidatorService;
         public CodingChallengeService(ICodeChallengeRepository CodeChallengeRepo,
                                       UserManager<ApplicationUser> userManager,
                                       IGameManager gameManager,
                                       IUserCodingChallengeRepository CompletedCodeChallengeRepo,
-                                      IPlayerStatsRepository PlayerRepo )
+                                      IPlayerStatsRepository PlayerRepo ,
+                                      IValidatorService ValidatorService)
         {
             _CodeChallengeRepo = CodeChallengeRepo;
             _userManager = userManager;
             _gameManager = gameManager;
             _CompletedCodeChallengeRepo = CompletedCodeChallengeRepo;
             _PlayerRepo = PlayerRepo;
+            _ValidatorService = ValidatorService;
         }
 
         public async Task<BaseServiceResponse<IEnumerable<CodingChallengeResponseDto>>> GetAll()
@@ -104,12 +107,21 @@ namespace CodingChallenge.Core.Services
             AnswerResponseDto responseDto = new();
             var user = await _userManager.FindByIdAsync(userId);
             var currentChallenge = await _CodeChallengeRepo.GetByNumber(user.CurrentChallengeNumber);
+            //
+            var userGameStats = await _PlayerRepo.GetByUserIdAsync(userId);
+
+            // 1check if gamestats exists
+            // 2 make a single function to update AND SAVE in db
+            // the stats changes based on bool parameter
+            //
+            //
 
             if (user is not null)
             {
                 bool isCorrect = await _gameManager.VerifyCodingChallengeAnswer(answer, user);
                 if (isCorrect)
-                {
+                {   
+
                     responseDto.IsCorrect = true;
                     responseObject.IsSucces = true;
                     responseObject.Data = responseDto;
@@ -206,39 +218,45 @@ namespace CodingChallenge.Core.Services
             return responseObject;
         }
 
+        //public async Task<BaseServiceResponse<PlayerStatsResponseDto>> GetUserGameStats(string userId)
+        //{
+        //    BaseServiceResponse<PlayerStatsResponseDto> responseObject = new();
+        //    PlayerStatsResponseDto responseDto = new();
+        //    var user = await _userManager.FindByIdAsync(userId);
+        //    if (user != null)
+        //    {
+        //        var statSheet = await _PlayerRepo.GetByUserIdAsync(userId);
+        //        if(statSheet != null)
+        //        {
+        //            responseDto.PlayerName = user.UserName;
+        //            responseDto.TotalGuesses = statSheet.TotalGuesses;
+        //            responseDto.CorrectGuesses = statSheet.CorrectGuesses;
+        //            responseDto.WrongGuesses = statSheet.WrongGuesses;
+        //            responseDto.Level = statSheet.Level;
+
+        //            responseObject.IsSucces = true;
+        //            responseObject.Data = responseDto;
+
+        //        }        
+        //        else
+        //        {
+        //            responseObject.IsSucces = false;
+        //            responseObject.ErrorMessages.Add("Unable to retrieve the User Stats");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        responseObject.IsSucces = false;
+        //        responseObject.ErrorMessages.Add("Unable to retrieve the User details");
+        //    }
+        //    return responseObject;
+
+        //}
+
         public async Task<BaseServiceResponse<PlayerStatsResponseDto>> GetUserGameStats(string userId)
-        {
-            BaseServiceResponse<PlayerStatsResponseDto> responseObject = new();
-            PlayerStatsResponseDto responseDto = new();
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user != null)
-            {
-                var statSheet = await _PlayerRepo.GetByUserIdAsync(userId);
-                if(statSheet != null)
-                {
-                    responseDto.PlayerName = user.UserName;
-                    responseDto.TotalGuesses = statSheet.TotalGuesses;
-                    responseDto.CorrectGuesses = statSheet.CorrectGuesses;
-                    responseDto.WrongGuesses = statSheet.WrongGuesses;
-                    responseDto.Level = statSheet.Level;
-
-                    responseObject.IsSucces = true;
-                    responseObject.Data = responseDto;
-
-                }        
-                else
-                {
-                    responseObject.IsSucces = false;
-                    responseObject.ErrorMessages.Add("Unable to retrieve the User Stats");
-                }
-            }
-            else
-            {
-                responseObject.IsSucces = false;
-                responseObject.ErrorMessages.Add("Unable to retrieve the User details");
-            }
-            return responseObject;
-
+        {          
+            var stats = await _ValidatorService.GetPlayerStatsByUserId(userId);
+            return stats;
         }
 
         private CodingChallengeResponseDto MapToCodingChallengeResponseDto(CodeChallenge challenge)

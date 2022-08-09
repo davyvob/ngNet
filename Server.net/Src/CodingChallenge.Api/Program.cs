@@ -4,6 +4,7 @@ using CodingChallenge.Core.Managers;
 using CodingChallenge.Core.Managers.Interfaces;
 using CodingChallenge.Core.Services;
 using CodingChallenge.Core.Services.Interfaces;
+using CodingChallenge.Core.Validators;
 using CodingChallenge.Infrastructure.Data;
 using CodingChallenge.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -98,6 +99,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IGameManager, GameManager>();
 builder.Services.AddScoped<IPlayerStatsRepository, PlayerStatsRepository>();
 builder.Services.AddScoped<IUserCodingChallengeRepository, CompletedCodeChallengeRepository>();
+builder.Services.AddScoped<IValidatorService, ValidatorService>();
 
 //builder.Services.AddCors(options => options.AddPolicy(name: "CodeChallengeContext", 
 //    policy =>
